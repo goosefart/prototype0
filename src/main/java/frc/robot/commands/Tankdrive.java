@@ -8,9 +8,12 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.OI;
+import frc.robot.Robot;
 
 public class Tankdrive extends Command {
   public Tankdrive() {
+    requires(Robot.drivebase);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -18,6 +21,7 @@ public class Tankdrive extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.drivebase.drive(-OI.CON.getRawAxis(1), -OI.CON.getRawAxis(3));
   }
 
   // Called repeatedly when this Command is scheduled to run
